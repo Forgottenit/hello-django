@@ -6,12 +6,10 @@ import sys
 if os.path.exists("env.py"):
     import env
 
-print(os.getenv("SECRET_KEY"))
-
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'PROJ_NAME.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_todo.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
