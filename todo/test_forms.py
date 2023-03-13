@@ -10,10 +10,10 @@ class TestItemForm(TestCase):
         self.assertIn('name', form.errors.keys())
         self.assertEqual(form.errors['name'][0], 'This field is required.')
 
-    def test_done_field_is_not_requires(self):
-        form = ItemForm({'name': 'Test Todo Item'})
-        self.assertTrue(form.is_valid())
-
     def test_fields_are_explicit_in_form_metaclass(self):
         form = ItemForm()
         self.assertEqual(form.Meta.fields, ['name', 'done'])
+
+    def test_done_field_is_not_requires(self):
+        form = ItemForm({'name': 'Test Todo Item'})
+        self.assertTrue(form.is_valid())
